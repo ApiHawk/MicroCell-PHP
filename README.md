@@ -1,5 +1,5 @@
 <p align="center">
-    <img title="AppCell" height="100" src="http://appcell.io/assets/images/image01.png?v46185933488851" />
+    <img title="AppCell" height="100" src="https://cdn.apihawk.com/welcome-images/appcell.png" />
 </p>
 
 
