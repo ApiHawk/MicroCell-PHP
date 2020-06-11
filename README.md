@@ -1,18 +1,12 @@
 <p align="center">
-    <img title="Laravel Zero" height="100" src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo/laravel-zero-readme.png" />
+    <img title="AppCell" height="100" src="http://appcell.io/assets/images/image01.png?v46185933488851" />
 </p>
 
-<p align="center">
-  <a href="https://github.com/laravel-zero/framework/actions"><img src="https://img.shields.io/github/workflow/status/laravel-zero/framework/Continuous%20Integration.svg" alt="Build Status"></img></a>
-  <a href="https://scrutinizer-ci.com/g/laravel-zero/framework"><img src="https://img.shields.io/scrutinizer/g/laravel-zero/framework.svg" alt="Quality Score"></img></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://poser.pugx.org/laravel-zero/framework/d/total.svg" alt="Total Downloads"></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://poser.pugx.org/laravel-zero/framework/v/stable.svg" alt="Latest Stable Version"></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://poser.pugx.org/laravel-zero/framework/license.svg" alt="License"></a>
-</p>
 
-<h4> <center>This is a <bold>community project</bold> and not an official Laravel one </center></h4>
+<h4> <center>MicroCell is a toolkit for writing AppCell plugins.</h4>
 
-Laravel Zero was created by, and is maintained by [Nuno Maduro](https://github.com/nunomaduro), and is a micro-framework that provides an elegant starting point for your console application. It is an **unofficial** and customized version of Laravel optimized for building command-line applications.
+
+AppCell is an orchestrative software that incorporates a plugin architecture. It allows one software to communicate with multiple other such without coupling, modifying the main software source, or hard-coding plugins. This way the integration of various softwares and the migration of services between such will become faster, more secure and more easily accomplished.
 
 - Built on top of the [Laravel](https://laravel.com) components.
 - Optional installation of Laravel [Eloquent](https://laravel-zero.com/docs/database/), Laravel [Logging](https://laravel-zero.com/docs/logging/) and many others.
@@ -24,14 +18,25 @@ Laravel Zero was created by, and is maintained by [Nuno Maduro](https://github.c
 
 ## Documentation
 
-For full documentation, visit [laravel-zero.com](https://laravel-zero.com/).
+For full documentation, visit [apihawk.com/help](https://www.apihawk.com/en/help/).
 
-## Support the development
-**Do you like this project? Support it by donating**
+## Instalation
 
-- PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L)
-- Patreon: [Donate](https://www.patreon.com/nunomaduro)
+microcell is available on composer. To install it, type:
 
-## License
+### Via ApiHawk Installer
+```bash
+composer global require "apihawk/installer"
+```
 
-Laravel Zero is an open-source software licensed under the [MIT license](https://github.com/laravel-zero/laravel-zero/blob/stable/LICENSE.md).
+Make sure to place composer's system-wide vendor bin directory in your `$PATH` so the ApiHawk executable can be located by your system. This directory exists in different locations based on your operating system. On macOS and GNU/Linux distributions, it's $HOME/.composer/vendor/bin.
+
+Once installed, the `apihawk new-cell` command will create a fresh MicroCell installation in the directory you specify. For instance, apihawk new-cell YourVendorName will create a directory named YourVendorNameCell containing a fresh MircoCell installation with all of MicroCell's dependencies already installed:
+```bash
+apihawk new-cell YourVendorName
+```
+
+### Via Composer Create-Project
+```bash
+composer create-project --prefer-dist apihawk/microcell YourVendorName
+```
