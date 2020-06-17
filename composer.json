@@ -23,12 +23,18 @@
     ],
     "require": {
         "php": "^7.2.5",
+        "enqueue/amqp-lib": "^0.10.1",
+        "enqueue/enqueue": "^0.10.1",
+        "guzzlehttp/guzzle": "^6.5",
+        "illuminate/log": "^7.0",
+        "laminas/laminas-json": "^3.1",
         "laravel-zero/framework": "^7.0"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
+        "eaglewu/swoole-ide-helper": "dev-master",
         "mockery/mockery": "^1.3.1",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^8.5",
+        "roave/security-advisories": "dev-master"
     },
     "autoload": {
         "psr-4": {

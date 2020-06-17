@@ -11,6 +11,16 @@
 |
 */
 
+//Add envs from file
+if (file_exists('../.env')) {
+    $handle = fopen('../.env', 'rb');
+    while (($line = fgets($handle)) !== false) {
+        putenv($line);
+    }
+
+    fclose($handle);
+}
+
 $app = new LaravelZero\Framework\Application(
     dirname(__DIR__)
 );
