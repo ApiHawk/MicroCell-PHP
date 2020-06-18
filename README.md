@@ -40,3 +40,67 @@ apihawk new-cell YourVendorName
 ```bash
 composer create-project --prefer-dist apihawk/microcell YourVendorName
 ```
+
+After installing the skeleton, run "app renaming" command in order to have freshly buit skeleton with all required installation files. 
+
+[APPCELL INSTALLATION FILES](https://www.apihawk.com/en/help/appcell/appcell-installation-files/)
+
+```bash
+apihawk app:rename
+```
+
+```bash
+Renaming the application...
+
+ What is your application name?:
+ > ApiHawk
+
+ What is your website? e.g. https://apihawk.com. The website should be reachable:
+ > https://apihawk.com
+
+Generate folder structure. (./appcell): ✔
+Fetch website metadata: ✔
+Writing AppCell.json: ✔
+Please select what functionalities, your service will have (defaults to renewable, suspendable). Multiple choice support. E.g. 0,1,2,3
+  [0] Renewable
+  [1] Suspendable
+  [2] Availability Check
+  [3] SSO (single-sign-on)
+ > 0,1,2,3
+You have just selected: Renewable, Suspendable, Availability Check, SSO (single-sign-on)
+Generate plugins.json: ✔
+Generate resources.json: ✔
+Generate settings.json: ✔
+Generate action files: loading... 
+ created successfully.
+ created successfully.
+ created successfully.
+ created successfully.
+ created successfully.
+ created successfully.
+ created successfully.
+ created successfully.
+ created successfully.
+ created successfully.
+Generate action files: ✔
+```
+ 
+When the renaming is done, you will have new files in the directories: `./appcell` and `./app/Actions`
+To start building your app, need to create .env file in the format: 
+
+```bash
+AH_AMQP_HOST=
+AH_AMQP_PORT=
+AH_AMQP_USER=
+AH_AMQP_PASS=
+AH_AMQP_VHOST=/
+AH_AMQP_HEARTBEAT=15
+
+AH_ETCD_HOST=
+AH_ETCD_PORT=
+AH_ETCD_USER=
+AH_ETCD_PASS=
+```
+
+Contact ApiHawk for providing you access to the required services.
+[ApiHawk Contact](https://www.apihawk.com/en/contacts/)
