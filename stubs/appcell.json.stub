@@ -10,15 +10,5 @@
     "homepage": "https://apihawk.com",
     "prefer-stable": true,
     "config": [],
-    "require": {
-        "appcell": ">=1",
-        "etcd": ">=3.0",
-        "scope": [
-            "customer_product",
-            "catalog_product_field",
-            "customer",
-            "company",
-            "email"
-        ]
-    }
+    "require": {}
 }

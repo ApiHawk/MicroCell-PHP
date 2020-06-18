@@ -57,6 +57,8 @@ final class RenameCommand extends Command
         $this->updateAppCellJson($name, $website);
         $this->updatePluginsJson($name);
 
+        $this->askForScopeAndFeatures();
+
         $this->updateComposer($name);
 
         return $this;
@@ -245,6 +247,47 @@ final class RenameCommand extends Command
             }
 
         });
+    }
+
+    private function askForScopeAndFeatures()
+    {
+        $helper = $this->getHelper('question');
+        $question = new ChoiceQuestion(
+            'Please select what scope of data, your service will require (defaults to customer_product, customer, email). Multiple choice support. E.g. 0,1,2,3',
+            ['customer_product', 'customer', 'email', 'company', 'catalog_product_field'],
+            '0,1,2'
+        );
+        $question->setMultiselect(true);
+
+        $scopes = $helper->ask($this->input, $this->output, $question);
+        $this->output->writeln('You have just selected: ' . implode(', ', $scopes));
+
+        $appcellJson = Json::decode(file_get_contents(APPLICATION_PATH . '/appcell/appcell.json'), Json::TYPE_ARRAY);
+        $appcellJson['require']['scope'] = $scopes;
+
+        $question = new ChoiceQuestion(
+            'Please select what features your service will require. (defaults to NONE). Multiple choice support. E.g. 0,1,2,3',
+            ['appcell', 'etcd', 'ui'],
+            '0'
+        );
+        $question->setMultiselect(true);
+
+        $features = $helper->ask($this->input, $this->output, $question);
+        $this->output->writeln('You have just selected: ' . implode(', ', $features));
+
+        $appcellJson['require']['appcell'] = '>=1.0';
+
+        if (in_array('etcd', $features, true)) {
+            $appcellJson['require']['etcd'] = '>=3.0';
+        }
+
+        if (in_array('ui', $features, true)) {
+            $appcellJson['require']['ui'] = '>=1.0';
+        }
+
+        $writer = new \Laminas\Config\Writer\Json();
+        $writer->toFile(APPLICATION_PATH . '/appcell/appcell.json', $appcellJson);
+
     }
 
     private function createSchemaFile($fileName)
