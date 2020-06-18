@@ -104,3 +104,161 @@ AH_ETCD_PASS=
 
 Contact ApiHawk for providing you access to the required services.
 [ApiHawk Contact](https://www.apihawk.com/en/contacts/)
+
+
+Generated files:
+
+### appcell.json
+
+```json
+{
+    "name": "applicationCell",
+    "description": "AppCell Application Cell - Software Development for Service Providers. Cloud Billing &amp; Automation Solutions, Software development, Know-How, API Consulting",
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+    "type": "plugin",
+    "support": {
+        "email": "thehawks@apihawk.com"
+    },
+    "homepage": "https://apihawk.com",
+    "prefer-stable": true,
+    "config": [],
+    "require": {
+        "appcell": ">=1",
+        "etcd": ">=3.0",
+        "scope": [
+            "customer_product",
+            "catalog_product_field",
+            "customer",
+            "company",
+            "email"
+        ]
+    }
+}
+```
+
+### plugins.json
+
+```json
+{
+    "plugin": {
+        "application": {
+            "implements": [
+                "https://repository.appcell.io/core/interface/service.schema.json",
+                "https://repository.appcell.io/core/interface/renewable.schema.json",
+                "https://repository.appcell.io/core/interface/suspendable.schema.json",
+                "https://repository.appcell.io/core/interface/availability.schema.json",
+                "https://repository.appcell.io/core/interface/impersonate.schema.json"
+            ],
+            "actions": {
+                "create": {
+                    "resource": "default",
+                    "action": "create",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/create.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/create.result.json"
+                },
+                "fetch": {
+                    "resource": "default",
+                    "action": "fetch",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/fetch.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/fetch.result.json"
+                },
+                "update": {
+                    "resource": "default",
+                    "action": "update",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/update.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/update.result.json"
+                },
+                "delete": {
+                    "resource": "default",
+                    "action": "delete",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/delete.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/delete.result.json"
+                },
+                "renew": {
+                    "resource": "default",
+                    "action": "renew",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/renew.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/renew.result.json"
+                },
+                "suspend": {
+                    "resource": "default",
+                    "action": "suspend",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/suspend.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/suspend.result.json"
+                },
+                "unsuspend": {
+                    "resource": "default",
+                    "action": "unsuspend",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/unsuspend.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/unsuspend.result.json"
+                },
+                "checkAvailability": {
+                    "resource": "default",
+                    "action": "checkAvailability",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/checkAvailability.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/checkAvailability.result.json"
+                },
+                "impersonate": {
+                    "resource": "default",
+                    "action": "impersonate",
+                    "$payload": "https://repository.appcell.io/applicationcell/schema/default/impersonate.payload.json",
+                    "$result": "https://repository.appcell.io/applicationcell/schema/default/impersonate.result.json"
+                }
+            }
+        }
+    }
+}
+```
+
+
+### resources.json
+
+```json
+{
+    "resources": {
+        "default": {
+            "identifier": "domain",
+            "rest": [
+                "create",
+                "fetch",
+                "fetchAll",
+                "update",
+                "delete"
+            ],
+            "actions": {
+                "renew": [],
+                "suspend": [],
+                "unsuspend": [],
+                "checkAvailability": [],
+                "impersonate": []
+            }
+        }
+    }
+}
+```
+
+### settings.json
+
+```json
+{
+    "fields": [
+        {
+            "name": "Account Plan",
+            "field_key": "plan",
+            "value": "basic"
+        }
+    ],
+    "options": [
+        {
+            "name": "Domain",
+            "key": "domain",
+            "type": "text",
+            "value_type": "text",
+            "required": true,
+            "provider": "user"
+        }
+    ]
+}
+```
+
