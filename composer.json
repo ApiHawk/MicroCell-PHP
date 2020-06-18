@@ -27,6 +27,7 @@
         "enqueue/enqueue": "^0.10.1",
         "guzzlehttp/guzzle": "^6.5",
         "illuminate/log": "^7.0",
+        "laminas/laminas-config": "^3.3",
         "laminas/laminas-json": "^3.1",
         "laravel-zero/framework": "^7.0"
     },
