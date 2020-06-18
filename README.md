@@ -46,7 +46,7 @@ After installing the skeleton, run "app renaming" command in order to have fresh
 [APPCELL INSTALLATION FILES](https://www.apihawk.com/en/help/appcell/appcell-installation-files/)
 
 ```bash
-apihawk app:rename
+./application app:rename
 ```
 
 ```bash
