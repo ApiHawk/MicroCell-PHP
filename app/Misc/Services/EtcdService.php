@@ -76,7 +76,7 @@ class EtcdService
 
     private $prefix;
 
-    public function __construct($server = '127.0.0.1:2379', $version = 'v3alpha')
+    public function __construct($server = '127.0.0.1:2379', $version = 'v3')
     {
         $this->server = rtrim($server);
         if (strpos($this->server, 'http') !== 0) {
