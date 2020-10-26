@@ -55,9 +55,9 @@ abstract class ConsumerProvider extends Command
             }
 
             if ($this->queueNameOnRun === 'Process') {
-                $this->queueNameOnRun = 'AppCell[' . strtolower(config('app.name')) . ']';
+                $this->queueNameOnRun = 'AppCell[' . lcfirst(config('app.name')) . ']';
             } else {
-                $this->queueNameOnRun = 'AppCell[' . strtolower(config('app.name')) . ']::' . $this->queueNameOnRun;
+                $this->queueNameOnRun = 'AppCell[' . lcfirst(config('app.name')) . ']::' . $this->queueNameOnRun;
             }
 
             $this->prepareQueue();
