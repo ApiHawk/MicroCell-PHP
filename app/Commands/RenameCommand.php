@@ -168,10 +168,12 @@ final class RenameCommand extends Command
                 $actions = $this->parseInterface($interface);
                 foreach ($actions as $action) {
                     $configActions[$action] = [
+                        [
                         'resource' => self::DEFAULT_RESOURCE,
                         'action' => $action,
                         '$payload' => 'https://repository.appcell.io/' . strtolower($name) . 'cell/schema/' . self::DEFAULT_RESOURCE . '/' . $action . '.payload.json',
                         '$result' => 'https://repository.appcell.io/' . strtolower($name) . 'cell/schema/' . self::DEFAULT_RESOURCE . '/' . $action . '.result.json'
+                        ]
                     ];
 
                     $this->createSchemaFile($action . '.payload.json');
