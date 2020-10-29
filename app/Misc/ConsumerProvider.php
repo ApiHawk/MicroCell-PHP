@@ -143,6 +143,7 @@ abstract class ConsumerProvider extends Command
             'vhost' => getenv('AH_AMQP_VHOST'),
             'user' => getenv('AH_AMQP_USER'),
             'pass' => getenv('AH_AMQP_PASS'),
+            'heartbeat' => getenv('AH_RBMQ_HEARTBEAT'),
             'persisted' => false,
 
         ]);
